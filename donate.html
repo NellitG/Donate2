@@ -19,7 +19,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background: #6200ea; /* Purple */
+            background-color: #6200ea; /* Purple */
             color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -42,8 +42,6 @@
         .header .navbar {
             display: flex;
             gap: 20px;
-            z-index: 10; /* Make sure navbar is on top of the home section */
-            position: relative; /* Ensure navbar stays above content */
         }
 
         .header .navbar a {
@@ -62,84 +60,26 @@
             cursor: pointer;
         }
 
-        /* Home Section */
-        .home {
-            background: url('image/BG\ 3\ JPG.jpg') no-repeat center center/cover;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            color: white;
-            z-index: 1; /* Ensure it's behind the navbar */
-        }
-
-        /* Overlay for better text visibility */
-        .home::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-            z-index: 1; /* Ensure it's behind the navbar */
-        }
-
-        /* Ensure content is above the overlay */
-        .home .content-wrapper {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Welcome Text - Big, Bold, Yellow */
-        .home .welcome-text {
-            font-size: 5rem; /* Bigger */
-            font-weight: bolder;
-            color: #ffd700; /* Yellow */
-            animation: popUp 1s ease-out forwards;
-        }
-
-        /* Donations Text - Slightly Bigger, Green */
-        .home .donations-text {
-            font-size: 2.2rem; /* Slightly Bigger */
-            font-weight: bolder;
-            color: #4caf50; /* Green */
-            animation: popUp 1.5s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Pop-Up Animation */
-        @keyframes popUp {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Content Section */
-        .content {
+        /* Donate Section */
+        .donate {
             padding: 40px 20px;
+            background-color: #f9f9f9;
             text-align: center;
-            background-color: #fff;
-            color: #333;
         }
 
-        .content span {
+        .donate .heading span {
             font-size: 2rem;
+            color: #6200ea;
             font-weight: bold;
-            color: #6200ea; /* Purple */
         }
 
-        .content h3 {
-            font-size: 2rem;
-            margin: 20px 0;
-            color: #333;
+        .donate .content p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
         }
 
-        .content .btn {
+        .donate .btn {
             padding: 10px 20px;
             background: #4caf50; /* Green */
             color: #fff;
@@ -148,13 +88,47 @@
             transition: background-color 0.3s ease;
         }
 
-        .content .btn:hover {
+        .donate .btn:hover {
             background: #388e3c; /* Dark Green */
+        }
+
+        /* M-Pesa Donation Section */
+        .mpesa-section {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .mpesa-section .paybill-details {
+            margin-top: 20px;
+        }
+
+        .mpesa-section .paybill-info {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .mpesa-section img {
+            width: 150px;
+            margin: 20px 0;
+        }
+
+        /* PayPal Donation Section */
+        .paypal-section {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .paypal-section img {
+            width: 150px;
+            margin-top: 20px;
         }
 
         /* Footer Section */
         footer {
-            background: #6200ea; /* Purple */
+            background-color: #6200ea; /* Purple */
             color: #fff;
             padding: 40px 20px;
             text-align: center;
@@ -219,8 +193,66 @@
             font-size: 1rem;
         }
 
-        /* Form Styling */
-        .footer-section form {
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('image/BG 3 JPG.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        /* Overlay for better text visibility */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: yellow;
+            opacity: 0;
+            animation: popUp 1s ease-out 0.3s forwards;
+        }
+
+        .hero-content p {
+            font-size: 2rem;
+            font-weight: bolder;
+            color: #4CAF50; /* Green */
+            opacity: 0;
+            animation: popUp 1s ease-out 0.6s forwards;
+        }
+
+        @keyframes popUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+            /* Form Styling */
+            .footer-section form {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -263,7 +295,7 @@
             background: #4caf50; /* Green on hover */
         }
 
-        /* Mobile Responsiveness */
+        /* Mobile Optimization */
         @media (max-width: 768px) {
             .header .navbar {
                 display: none;
@@ -275,7 +307,7 @@
                 padding: 10px;
                 width: 200px;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                z-index: 20; /* Ensure the menu appears above the image */
+                z-index: 9999; /* Bring the navbar to the front */
             }
 
             .header .navbar a {
@@ -287,179 +319,12 @@
             .header .hamburger {
                 display: block;
                 cursor: pointer;
+                z-index: 10000; /* Ensure hamburger is above everything */
             }
 
             .header .navbar.active {
                 display: flex;
             }
-
-            /* Testimonials Section */
-.testimonials {
-    padding: 40px 20px;
-    background: #f9f9f9;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 2.5rem;
-    color: #6200ea; /* Purple */
-    margin-bottom: 30px;
-}
-
-.testimonial-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.testimonial {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    text-align: left;
-}
-
-.testimonial p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.testimonial span {
-    font-size: 0.9rem;
-    color: #6200ea; /* Purple */
-    font-weight: bold;
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 40px 20px;
-    background: #f9f9f9;
-    text-align: center;
-    width: 100%;
-    max-width: 1200px; /* Ensures it is not constrained */
-    margin: 0 auto;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important; /* Ensures it's visible */
-}
-
-.testimonials h2 {
-    font-size: 2.5rem;
-    color: #6200ea; /* Purple */
-    margin-bottom: 30px;
-}
-
-.testimonial-container {
-    display: flex !important;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px; /* Ensures it scales properly */
-    margin: 0 auto;
-}
-
-.testimonial {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    flex: 1;
-    min-width: 250px; /* Ensures it does not collapse */
-    text-align: left;
-}
-
-.testimonial p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.testimonial span {
-    font-size: 0.9rem;
-    color: #6200ea; /* Purple */
-    font-weight: bold;
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 40px 20px;
-    background: #f9f9f9;
-    text-align: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.testimonials h2 {
-    font-size: 2.5rem;
-    color: #6200ea; /* Purple */
-    margin-bottom: 30px;
-}
-
-.testimonial-container {
-    display: flex; /* Ensure flexbox is applied */
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.testimonial {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    flex: 1;
-    min-width: 250px; /* Ensures it does not collapse */
-    text-align: left;
-}
-
-/* Upcoming Events Section */
-.upcoming-events {
-    padding: 40px 20px;
-    background: #fff;
-    text-align: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.upcoming-events h2 {
-    font-size: 2.5rem;
-    color: #6200ea; /* Purple */
-    margin-bottom: 30px;
-}
-
-.event-container {
-    display: flex; /* Ensure flexbox is applied */
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.event {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    text-align: left;
-    flex: 1;
-    min-width: 250px;
-}
-
-
 
             .footer-content {
                 flex-direction: column;
@@ -481,18 +346,15 @@
 
     <!-- Header Section -->
     <header class="header">
-        <!-- Logo Section -->
         <a href="#" class="logo">
             <img src="image/WHCI LOGO.PNG.png" alt="Western Homebased Care Logo">
             Western Homebased Care
         </a>
         
-        <!-- Hamburger Menu -->
         <div class="hamburger" onclick="toggleNavbar()">
             <i class="fas fa-bars"></i>
         </div>
 
-        <!-- Navigation Menu -->
         <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
@@ -504,75 +366,52 @@
         </nav>
     </header>
 
-    <!-- Home Section -->
-    <section class="home" id="home">
-        <div class="content-wrapper">
-            <h1 class="welcome-text">Welcome to WHCI</h1>
-            <p class="donations-text">Your donations change lives</p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="pop-up">Donations</h1>
+            <p class="pop-up">Make an impact today!</p>
         </div>
     </section>
 
-    <!-- Content Section -->
-    <div class="content">
-        <span>Karibu WHCI</span>
-        <h3>Give Hope, Change Lives – Your Contribution Matters!</h3>
-        <a href="donate.html" class="btn">Donate Now</a>
-    </div>
+    <!-- Donate Section -->
+    <section class="donate">
+        <div class="heading">
+            <span>make a difference</span>
+            <h3>Donate Now</h3>
+        </div>
+        <div class="content">
+            <p>Your generous donations help provide care, education, and essential resources to the community. Together, we can make a lasting impact on the lives of those in need.</p>
+            <a href="#" class="btn">Donate Now</a>
+        </div>
+    </section>
 
-    <!-- Testimonials Section -->
-<section class="testimonials">
-    <h2>What People Say About Us</h2>
-    <div class="testimonial-container">
-        <!-- Testimonial 1 -->
-        <div class="testimonial">
-            <p>"Western Homebased Care has been a blessing to our community. Their dedication to helping those in need is truly inspiring."</p>
-            <span>- Jane Doe, Community Member</span>
-        </div>
-        <!-- Testimonial 2 -->
-        <div class="testimonial">
-            <p>"I am so grateful for the support WHCI provided during a difficult time. They truly care about making a difference."</p>
-            <span>- John Smith, Beneficiary</span>
-        </div>
-        <!-- Testimonial 3 -->
-        <div class="testimonial">
-            <p>"The work WHCI does is incredible. They are changing lives every day, and I’m proud to support their mission."</p>
-            <span>- Mary Johnson, Donor</span>
-        </div>
-    </div>
-</section>
 
-<!-- Upcoming Events Section -->
-<section class="upcoming-events">
-    <h2>Upcoming Events</h2>
-    <div class="event-container">
-        <!-- Event 1 -->
-        <div class="event">
-            <h3>Community Health Day</h3>
-            <p><strong>Date:</strong> March 15, 2024</p>
-            <p><strong>Location:</strong> Western, Kenya</p>
-            <p>Join us for a day of free health check-ups, vaccinations, and health education for the community.</p>
-        </div>
-        <!-- Event 2 -->
-        <div class="event">
-            <h3>Fundraising Gala</h3>
-            <p><strong>Date:</strong> April 20, 2024</p>
-            <p><strong>Location:</strong> Nairobi, Kenya</p>
-            <p>Help us raise funds to support our programs and initiatives. Enjoy an evening of food, music, and inspiration.</p>
-        </div>
-        <!-- Event 3 -->
-        <div class="event">
-            <h3>Volunteer Training Workshop</h3>
-            <p><strong>Date:</strong> May 10, 2024</p>
-            <p><strong>Location:</strong> Western, Kenya</p>
-            <p>Learn how you can make a difference by joining our team of dedicated volunteers.</p>
-        </div>
-    </div>
-</section>
+    
 
-<!-- Footer Section -->
-<footer class="footer">
-    <!-- Footer content here -->
-</footer>
+    <!-- M-Pesa Donation Section -->
+    <section class="mpesa-section">
+        <h3>Donate via M-Pesa</h3>
+        <p>Support us through M-Pesa by using the Paybill number and Account provided below.</p>
+        <img src="image/M-PESA_LOGO-01.svg.png" alt="M-Pesa Logo" class="mpesa-logo">
+        <div class="paybill-details">
+            <label for="paybill">Paybill Number:</label>
+            <div class="paybill-info">400200</div>
+            <label for="account">Account Number:</label>
+            <div class="paybill-info">40026174</div>
+            <label for="Business Name">Business Name:</label>
+            <div class="Business Name">WESTERN HOMEBASED</div>
+        </div>
+    </section>
+
+    <!-- PayPal Donation Section -->
+    <section class="paypal-section">
+        <h3>Donate via PayPal</h3>
+        <p>Support us globally via PayPal.</p>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" target="_blank">
+            <img src="image/Paypal_2014_logo.png" alt="PayPal Logo" class="paypal-logo">
+        </a>
+    </section>
 
     <!-- Footer Section -->
 <footer class="footer">
